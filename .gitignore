@@ -1,0 +1,13 @@
+# Arquivos locais e credenciais
+.env
+.env.*
+!.env.example
+
+# Sistema e editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Logs
+*.log
