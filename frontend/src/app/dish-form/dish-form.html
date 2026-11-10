@@ -1,0 +1,56 @@
+<h2>{{ editing ? 'Editar prato' : 'Novo prato' }}</h2>
+<p class="lead">
+  {{
+    editing
+      ? 'Atualize os dados do item no cardápio.'
+      : 'Preencha os dados do item que será adicionado ao cardápio.'
+  }}
+</p>
+
+@if (loading()) {
+  <p class="state">Carregando prato…</p>
+} @else {
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <div class="field">
+      <label for="descricao">Descrição</label>
+      <input
+        id="descricao"
+        type="text"
+        formControlName="descricao"
+        autocomplete="off"
+        placeholder="Ex.: Marmita de frango"
+        required
+      />
+      @if (form.controls.descricao.touched && form.controls.descricao.invalid) {
+        <p class="error">Informe uma descrição com pelo menos 3 caracteres.</p>
+      }
+    </div>
+
+    <div class="field">
+      <label for="preco">Preço (R$)</label>
+      <input
+        id="preco"
+        type="number"
+        formControlName="preco"
+        min="0.01"
+        step="0.01"
+        inputmode="decimal"
+        required
+      />
+      @if (form.controls.preco.touched && form.controls.preco.invalid) {
+        <p class="error">Informe um preço maior que zero.</p>
+      }
+    </div>
+
+    @if (error()) {
+      <p class="error form-error">{{ error() }}</p>
+    }
+
+    <div class="actions">
+      <button type="submit" [disabled]="saving()">
+        {{ saving() ? 'Salvando…' : 'Salvar prato' }}
+      </button>
+      <a [routerLink]="editing ? ['/pratos', id] : ['/pratos']">Cancelar</a>
+    </div>
+  </form>
+}

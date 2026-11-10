@@ -1,0 +1,21 @@
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" routerLink="/" aria-label="Delivery — início">
+      <span class="brand-icon" aria-hidden="true">d.</span>
+      <span><h1>Delivery<span class="brand-dot">.</span></h1><small>COMIDA BOA, TODO DIA</small></span>
+    </a>
+    <nav aria-label="Navegação principal">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page">Início</a>
+      <a routerLink="/pratos" routerLinkActive="active" ariaCurrentWhenActive="page">Cardápio</a>
+      <a routerLink="/clientes" routerLinkActive="active" ariaCurrentWhenActive="page">Clientes</a>
+      <a routerLink="/pedidos" routerLinkActive="active" ariaCurrentWhenActive="page">Pedidos <span aria-hidden="true">↗</span></a>
+    </nav>
+  </div>
+</header>
+<main id="conteudo" class="content" tabindex="-1"><router-outlet /></main>
+<footer class="site-footer">
+  <a class="footer-brand" routerLink="/">Delivery.</a>
+  <span>Uma boa comida começa com um bom cardápio.</span>
+  <a routerLink="/pratos">Conheça os pratos <span aria-hidden="true">↗</span></a>
+</footer>

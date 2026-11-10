@@ -1,0 +1,64 @@
+<h2>Pedido</h2>
+<p class="lead">Itens, quantidades e valores do pedido.</p>
+
+@if (loading()) {
+  <p class="state">Carregando pedido…</p>
+} @else if (error()) {
+  <p class="state error">{{ error() }}</p>
+} @else if (pedido(); as p) {
+  <dl class="detail">
+    <div>
+      <dt>Número</dt>
+      <dd>#{{ p.id }}</dd>
+    </div>
+    <div>
+      <dt>Cliente</dt>
+      <dd>
+        <a [routerLink]="['/clientes', p.clienteId]">{{ p.clienteNome }}</a>
+      </dd>
+    </div>
+    <div>
+      <dt>Data</dt>
+      <dd>{{ p.dataCriacao | date: "dd/MM/yyyy 'às' HH:mm" }}</dd>
+    </div>
+    <div>
+      <dt>Itens</dt>
+      <dd>{{ p.quantidadeItens }} unidade(s) em {{ p.itens.length }} linha(s)</dd>
+    </div>
+  </dl>
+
+  <div class="table-scroll" role="region" aria-label="Itens do pedido" tabindex="0"><table class="order-items">
+    <thead>
+      <tr>
+        <th scope="col">Item</th>
+        <th scope="col">Prato</th>
+        <th scope="col">Qtd.</th>
+        <th scope="col">Preço unit.</th>
+        <th scope="col">Subtotal</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (item of p.itens; track item.id) {
+        <tr>
+          <td>{{ item.id }}</td>
+          <td>
+            <a [routerLink]="['/pratos', item.pratoId]">{{ item.descricao }}</a>
+          </td>
+          <td>{{ item.quantidade }}</td>
+          <td>{{ item.precoUnitario | currency: 'BRL' }}</td>
+          <td>{{ item.subtotal | currency: 'BRL' }}</td>
+        </tr>
+      }
+    </tbody>
+  </table></div>
+
+  <div class="order-total">
+    <span>Total</span>
+    <strong>{{ p.total | currency: 'BRL' }}</strong>
+  </div>
+
+  <div class="actions-row">
+    <a class="back" routerLink="/pedidos">← Voltar para pedidos</a>
+  </div>
+}

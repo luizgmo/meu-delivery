@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" fill="none">
+<title>Marmita ilustrada com arroz, feijão, legumes e salada</title>
+<defs>
+  <pattern id="rice" width="25" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(-12)"><rect width="25" height="22" fill="#f8eed3"/><path d="M4 4l8 3M16 15l6-3" stroke="#e2cda0" stroke-width="3.5" stroke-linecap="round"/></pattern>
+  <pattern id="beans" width="36" height="30" patternUnits="userSpaceOnUse" patternTransform="rotate(15)"><rect width="36" height="30" fill="#8b4931"/><ellipse cx="12" cy="10" rx="9" ry="6" fill="#b66e46"/><path d="M8 9l6 1" stroke="#d5905c" stroke-width="2" stroke-linecap="round"/><ellipse cx="29" cy="25" rx="9" ry="6" fill="#6f382a"/></pattern>
+  <linearGradient id="tray" x1="70" y1="80" x2="490" y2="490" gradientUnits="userSpaceOnUse"><stop stop-color="#fdfbf3"/><stop offset="1" stop-color="#d4c4a5"/></linearGradient>
+</defs>
+<!-- Ilustração vetorial original, sem fotografias ou recursos externos. -->
+<rect x="69" y="84" width="424" height="406" rx="80" fill="#9d7952" opacity=".13"/>
+<rect x="65" y="69" width="430" height="418" rx="79" fill="url(#tray)" stroke="#fffdf3" stroke-width="5"/>
+<rect x="83" y="87" width="394" height="382" rx="63" fill="#bba98a"/>
+<!-- Arroz -->
+<path d="M101 143Q103 103 151 103H276V286H101Z" fill="url(#rice)"/>
+<path d="M114 138q20-17 40-17M126 260l28-7M243 122l12 3" stroke="#fff8e5" stroke-width="5" stroke-linecap="round"/>
+<!-- Feijão -->
+<path d="M102 306H276V452H153Q102 452 102 406Z" fill="url(#beans)"/>
+<!-- Salada -->
+<path d="M298 103H408Q459 103 459 155V257H298Z" fill="#4f6935"/>
+<g fill="#779647" stroke="#405b2b" stroke-width="2">
+<path d="M310 112q38-28 52 16 28-18 39 12-7 22-47 30-45 2-44-58Z"/>
+<path d="M362 154q37-32 58-4 31-3 30 30-9 28-46 23-37-2-42-49Z"/>
+<path d="M302 188q30-37 54-10 26 0 28 26-23 39-60 28-24-10-22-44Z"/>
+<path d="M380 220q18-37 48-17 30-5 27 21-5 29-37 26-28-2-38-30Z"/>
+</g>
+<g stroke="#a8b96d" stroke-width="3" stroke-linecap="round"><path d="M317 125l53 25M376 172l56 12M317 211l42-17M400 229l31-8"/></g>
+<!-- Tomates -->
+<g fill="#c94a2e" stroke="#e97b44" stroke-width="4"><circle cx="416" cy="133" r="23"/><circle cx="356" cy="225" r="22"/></g>
+<g fill="#edaa64"><ellipse cx="409" cy="128" rx="4" ry="6" transform="rotate(-35 409 128)"/><ellipse cx="424" cy="138" rx="4" ry="6" transform="rotate(-35 424 138)"/><ellipse cx="350" cy="219" rx="4" ry="5"/><ellipse cx="363" cy="232" rx="4" ry="5"/></g>
+<!-- Legumes assados -->
+<path d="M298 279H458V403Q458 452 408 452H298Z" fill="#c49d5f"/>
+<g fill="#d98a3f" stroke="#a85d2e" stroke-width="3"><rect x="319" y="295" width="46" height="120" rx="20" transform="rotate(-15 319 295)"/><rect x="377" y="299" width="44" height="126" rx="20" transform="rotate(12 377 299)"/></g>
+<g stroke="#8c4d28" stroke-width="5" stroke-linecap="round"><path d="M328 317l24-5M335 344l24-5M342 372l24-5M385 325l25 5M380 352l24 5M375 381l24 5"/></g>
+<g fill="#618044"><ellipse cx="334" cy="436" rx="18" ry="10" transform="rotate(-30 334 436)"/><ellipse cx="424" cy="432" rx="17" ry="9" transform="rotate(30 424 432)"/></g>
+<!-- Divisórias da marmita -->
+<path d="M286 102V453M101 296H281M293 268H458" stroke="#eaddc3" stroke-width="14" stroke-linecap="round"/>
+<path d="M286 104V451M104 296H278M296 268H455" stroke="#fff8e7" stroke-width="4" stroke-linecap="round"/>
+<g fill="#52703b"><path d="M182 170l8-5 1 9-8 4Z"/><path d="M230 240l6-3 2 8-6 3Z"/><path d="M157 225l7-3 2 8-7 3Z"/></g>
+</svg>

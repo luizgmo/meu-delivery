@@ -1,0 +1,8 @@
+.dish-detail-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 32px; align-items: center; }
+.detail-art { background: #eedebd; border-radius: 24px; display: flex; flex-direction: column; align-items: center; padding: 16px; }
+.detail-art img { width: 100%; height: auto; transform: rotate(-8deg); }
+.detail-art span { color: var(--muted); font-size: 10px; margin-bottom: 12px; }
+.detail-copy h2 { margin-top: 18px; }
+.price-label { color: var(--muted); font-size: 10px; letter-spacing: 1.5px; font-weight: bold; }
+.detail-price { font-size: 42px; color: var(--accent); font-weight: bold; letter-spacing: -1.5px; margin: 5px 0 28px; }
+@media(max-width: 700px) { .dish-detail-layout { grid-template-columns: 1fr; gap: 32px; } .detail-art { max-width: 440px; } }

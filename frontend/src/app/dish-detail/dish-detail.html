@@ -1,0 +1,9 @@
+<a class="back" routerLink="/pratos">← Voltar ao cardápio</a>
+@if (loading()) { <p class="state" role="status">Carregando prato…</p> }
+@else if (prato(); as p) {
+  @if (error()) { <p class="state error" role="alert">{{ error() }}</p> }
+  <div class="dish-detail-layout">
+    <div class="detail-art"><img src="marmita.svg" width="480" height="480" alt="Ilustração do cardápio"><span>Ilustração do cardápio</span></div>
+    <div class="detail-copy"><span class="eyebrow">DA NOSSA COZINHA · PRATO #{{ p.id }}</span><h2>{{ p.descricao }}</h2><p class="lead">Um dos sabores que fazem parte do nosso cardápio.</p><span class="price-label">VALOR DO PRATO</span><p class="detail-price">{{ p.preco | currency: 'BRL' }}</p><div class="actions-row"><a class="btn" [routerLink]="['/pratos', p.id, 'editar']">Editar prato <span aria-hidden="true">↗</span></a><button type="button" class="link-danger" (click)="remove()">Excluir prato</button></div></div>
+  </div>
+} @else if (error()) { <p class="state error" role="alert">{{ error() }}</p> }

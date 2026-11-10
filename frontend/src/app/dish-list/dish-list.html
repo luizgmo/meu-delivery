@@ -1,0 +1,24 @@
+<div class="page-head"><div><span class="eyebrow">DA NOSSA COZINHA</span><h2>O cardápio<span class="accent">.</span></h2></div><a class="btn" routerLink="/pratos/novo">Novo prato <span aria-hidden="true">+</span></a></div>
+<p class="lead">Uma boa marmita faz o dia melhor. Conheça e organize os pratos da casa.</p>
+@if (loading()) {
+  <p class="state" role="status">Preparando o cardápio…</p>
+} @else if (error()) {
+  <p class="state error" role="alert">{{ error() }}</p>
+} @else if (pratos().length === 0) {
+  <div class="state"><h3>A cozinha está começando.</h3><p>Cadastre o primeiro prato para montar o seu cardápio.</p><a class="btn" routerLink="/pratos/novo">Cadastrar prato</a></div>
+} @else {
+  <div class="menu-heading"><span>MARMITAS DA CASA</span><span>{{ pratos().length }} prato(s) no cardápio</span></div>
+  <div class="dish-grid">
+    @for (prato of pratos(); track prato.id) {
+      <article class="dish-card">
+        <a class="dish-art" [routerLink]="['/pratos', prato.id]" [attr.aria-label]="'Ver ' + prato.descricao">
+          <span class="dish-code">PRATO #{{ prato.id }}</span>
+          <img src="marmita.svg" width="320" height="320" alt="" loading="lazy">
+          <span class="art-disclaimer">Ilustração do cardápio</span>
+        </a>
+        <div class="dish-body"><span class="eyebrow">MARMITA</span><h3><a [routerLink]="['/pratos', prato.id]">{{ prato.descricao }}</a></h3><div class="dish-bottom"><strong>{{ prato.preco | currency: 'BRL' }}</strong><a class="dish-view" [routerLink]="['/pratos', prato.id]" [attr.aria-label]="'Detalhes de ' + prato.descricao">Ver prato <span aria-hidden="true">↗</span></a></div></div>
+        <div class="dish-admin"><a [routerLink]="['/pratos', prato.id, 'editar']">Editar prato</a><button type="button" (click)="remove(prato)" [attr.aria-label]="'Excluir ' + prato.descricao">Excluir</button></div>
+      </article>
+    }
+  </div>
+}

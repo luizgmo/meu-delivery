@@ -1,0 +1,37 @@
+<h2>Cliente</h2>
+<p class="lead">Dados de contato e situação do cliente.</p>
+
+@if (loading()) {
+  <p class="state">Carregando cliente…</p>
+} @else if (cliente(); as c) {
+  @if (error()) {
+    <p class="state error">{{ error() }}</p>
+  }
+
+  <dl class="detail">
+    <div>
+      <dt>ID</dt>
+      <dd>{{ c.id }}</dd>
+    </div>
+    <div>
+      <dt>Nome</dt>
+      <dd>{{ c.nome }}</dd>
+    </div>
+    <div>
+      <dt>E-mail</dt>
+      <dd>{{ c.email }}</dd>
+    </div>
+    <div>
+      <dt>Situação</dt>
+      <dd>{{ c.ativo ? 'Ativo' : 'Inativo' }}</dd>
+    </div>
+  </dl>
+
+  <div class="actions-row">
+    <a class="btn" [routerLink]="['/clientes', c.id, 'editar']">Editar</a>
+    <button type="button" class="link-danger" (click)="remove()">Excluir</button>
+    <a class="back" routerLink="/clientes">← Voltar para clientes</a>
+  </div>
+} @else if (error()) {
+  <p class="state error">{{ error() }}</p>
+}

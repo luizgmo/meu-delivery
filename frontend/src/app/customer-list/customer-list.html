@@ -1,0 +1,41 @@
+<div class="page-head">
+  <h2>Clientes</h2>
+  <a class="btn" routerLink="/clientes/novo">Novo cliente</a>
+</div>
+<p class="lead">Clientes cadastrados, com contato e situação.</p>
+
+@if (loading()) {
+  <p class="state">Carregando clientes…</p>
+} @else if (error()) {
+  <p class="state error">{{ error() }}</p>
+} @else if (clientes().length === 0) {
+  <p class="state">Nenhum cliente cadastrado.</p>
+} @else {
+  <div class="table-scroll" role="region" aria-label="Lista de clientes" tabindex="0"><table>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Situação</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (cliente of clientes(); track cliente.id) {
+        <tr>
+          <td>{{ cliente.id }}</td>
+          <td>{{ cliente.nome }}</td>
+          <td>{{ cliente.email }}</td>
+          <td><span class="status" [class.inactive]="!cliente.ativo">{{ cliente.ativo ? 'Ativo' : 'Inativo' }}</span></td>
+          <td class="row-actions">
+            <a [routerLink]="['/clientes', cliente.id]">Ver</a>
+            <a [routerLink]="['/clientes', cliente.id, 'editar']">Editar</a>
+            <button type="button" (click)="remove(cliente)">Excluir</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table></div>
+}
