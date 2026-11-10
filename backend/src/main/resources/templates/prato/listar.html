@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Delivery</title>
+		<meta charset="UTF-8">
+		<script th:src="@{/js/prato-excluir.js}" defer></script>
+	</head>
+
+	<body>
+		<h1>Delivery</h1>
+
+		<p th:if="${#lists.isEmpty(pratos)}">
+		A consulta não gerou resultados.
+		</p>
+
+		<table border="1" th:if="${not #lists.isEmpty(pratos)}">
+			<tr>
+				<th>ID</th>
+				<th>Descrição</th>
+				<th>Preço</th>
+				<th></th>
+			</tr>
+
+			<tr th:each="prato : ${pratos}">
+				<td th:text="${prato.id}">1</td>
+				<td th:text="${prato.descricao}">Cliente</td>
+				<td th:text="${#numbers.formatDecimal(prato.preco, 1, 2, 'COMMA')}">preço</td>
+				<td>
+					<a class="action-remove" th:data-id="${prato.id}" href="#">Excluir</a>
+				</td>
+			</tr>
+
+
+		</table>
+	</body>
+</html>

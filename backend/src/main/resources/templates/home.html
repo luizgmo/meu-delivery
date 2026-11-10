@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Delivery - Home</title>
+		<meta charset="UTF-8">
+	</head>
+
+	<body>
+		<h1>Bem-vindo!</h1>
+		<p>Olá, <span th:text="${usuario}"></span>!</p>
+
+		<ul>
+			<li>
+				Clientes
+				<ul>
+					<li><a th:href="@{/cliente/listar}">Listar</a></li>
+					<li><a th:href="@{/cliente/novo}">Novo</a></li>
+				</ul>
+			</li>
+
+			<li>
+				Pratos
+				<ul>
+					<li><a th:href="@{/prato/listar}">Listar</a></li>
+				</ul>
+			</li>
+
+			<li>
+				Pedidos
+				<ul>
+					<li><a th:href="@{/pedido/listar}">Listar</a></li>
+				</ul>
+			</li>
+		</ul>		
+	</body>
+</html>

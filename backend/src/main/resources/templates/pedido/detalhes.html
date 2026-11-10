@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Delivery</title>
+		<meta charset="UTF-8">
+	</head>
+
+	<body>
+		<h1>Delivery</h1>
+
+		<h2>Pedido #<span th:text="${pedido.id}"></span></h2>		
+		<p><strong>Cliente:</strong> <span th:text="${pedido.cliente.nome}"></span></p>
+
+		<table border="1">
+			<tr>
+				<th>Item</th>
+				<th>Descrição</th>
+				<th>Quantidade</th>
+				<th>Preço Unitário</th>
+			</tr>
+
+			<tr th:each="item : ${pedido.itens}">
+				<td th:text="${item.id}"></td>
+				<td th:text="${item.prato.descricao}"></td>
+				<td th:text="${item.quantidade}"></td>
+				<td th:text="${#numbers.formatDecimal(item.prato.preco, 1, 2, 'COMMA')}"></td>
+			</tr>
+
+		</table>
+
+	</body>
+</html>

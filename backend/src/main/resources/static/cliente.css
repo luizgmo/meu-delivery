@@ -1,0 +1,16 @@
+table, td, th {
+	border: solid grey 1px;
+	border-collapse: collapse;
+}
+
+th {
+	background: MediumAquaMarine;
+}
+
+td, th {
+	padding: 0.15em;
+}
+
+tr.destaque > td {
+	background: silver;
+}

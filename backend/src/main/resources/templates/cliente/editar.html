@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Delivery - Clientes</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" th:href="@{/cliente.css}">
+	</head>
+	
+	<body>
+		<h1>Editar cliente</h1>
+
+		<form method="post" 
+			th:action="@{/cliente/salvar}"
+			th:object="${cliente}">
+			
+			<label>ID:</label>
+			<input type="hidden" th:field="*{id}">
+			<input type="text" disabled th:value="*{id}">
+			<br>
+
+			<label>Nome:</label>
+			<input type="text" th:field="*{nome}">
+			<span 
+				th:if="#{fields.hasErrors('nome')}"
+				th:errors="*{nome}"
+				>erro</span>			
+			<br>
+						
+			<label>E-mail:</label>
+			<input type="text" th:field="*{email}">
+			<span 
+				th:if="#{fields.hasErrors('email')}"
+				th:errors="*{email}"
+				>erro</span>			
+			<br>
+						
+			<br>
+			<button type="submit">Salvar</button>			
+		</form>
+
+	</body>
+</html>
