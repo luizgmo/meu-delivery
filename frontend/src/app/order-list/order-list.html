@@ -1,6 +1,14 @@
 <h2>Pedidos</h2>
 <p class="lead">Pedidos registrados, com cliente, quantidade de itens e total.</p>
 
+<a class="btn" routerLink="/pedidos/novo">Novo pedido</a>
+
+@if (totalGanho() > 0) {
+  <div class="total-ganho">
+    <strong>Total ganho:</strong> <span class="price">{{ totalGanho() | currency: 'BRL' }}</span>
+  </div>
+}
+
 @if (loading()) {
   <p class="state">Carregando pedidos…</p>
 } @else if (error()) {
@@ -32,6 +40,7 @@
           <td class="price">{{ pedido.total | currency: 'BRL' }}</td>
           <td class="row-actions">
             <a [routerLink]="['/pedidos', pedido.id]">Ver</a>
+            <button type="button" class="btn-delete" (click)="deletar(pedido.id)">Excluir</button>
           </td>
         </tr>
       }

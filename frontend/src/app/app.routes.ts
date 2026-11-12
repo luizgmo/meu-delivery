@@ -5,6 +5,7 @@ import { CustomerForm } from './customer-form/customer-form';
 import { CustomerList } from './customer-list/customer-list';
 import { Home } from './home/home';
 import { OrderDetail } from './order-detail/order-detail';
+import { OrderForm } from './order-form/order-form';
 import { OrderList } from './order-list/order-list';
 import { DishDetail } from './dish-detail/dish-detail';
 import { DishForm } from './dish-form/dish-form';
@@ -50,6 +51,10 @@ export const routes: Routes = [
   {
     path: 'pedidos',
     component: OrderList,
+  },
+  {
+    path: 'pedidos/novo',
+    component: OrderForm,
   },
   {
     path: 'pedidos/:id',

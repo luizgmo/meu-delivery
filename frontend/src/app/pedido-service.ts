@@ -18,4 +18,12 @@ export class PedidoService {
   getPedidoById(id: number): Observable<PedidoDetalhe> {
     return this.http.get<PedidoDetalhe>(`${this.url}/${id}`);
   }
+
+  createPedido(pedido: { clienteId: number; itens: { pratoId: number; quantidade: number }[] }): Observable<PedidoDetalhe> {
+    return this.http.post<PedidoDetalhe>(this.url, pedido);
+  }
+
+  deletePedido(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.url}/${id}`);
+  }
 }

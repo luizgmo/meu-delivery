@@ -1,1 +1,39 @@
 :host { display: block; min-width: 0; }
+
+.total-ganho {
+  margin: 20px 0 28px 0;
+  padding: 16px 24px;
+  background: white;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.total-ganho strong {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.total-ganho .price {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.btn-delete {
+  padding: 6px 14px;
+  background: #dc2626;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.btn-delete:hover {
+  background: #b91c1c;
+}

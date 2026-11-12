@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class Pedido {
 	@ManyToOne
 	private Cliente cliente;
 	
-	@OneToMany(mappedBy = "pedido")
+	@OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<PedidoItem> itens = new ArrayList<>();
 	
 	public List<PedidoItem> getItens() {

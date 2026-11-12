@@ -1,0 +1,75 @@
+<h2>Novo pedido</h2>
+<p class="lead">Preencha os dados do pedido que será cadastrado.</p>
+
+@if (loading()) {
+  <p class="state">Carregando…</p>
+} @else {
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <div class="field">
+      <label class="field-label" for="clienteId">Cliente</label>
+      <select id="clienteId" formControlName="clienteId" required>
+        <option value="">Selecione um cliente</option>
+        @for (cliente of clientes(); track cliente.id) {
+          <option [value]="cliente.id">{{ cliente.nome }}</option>
+        }
+      </select>
+      @if (form.controls.clienteId.touched && form.controls.clienteId.invalid) {
+        <p class="error">Selecione um cliente.</p>
+      }
+    </div>
+
+    <fieldset class="items-fieldset">
+      <legend>Itens do pedido</legend>
+
+      @for (itemGroup of itens.controls; track $index) {
+        <div [formGroup]="$any(itemGroup)" class="item-row">
+          <div class="field">
+            <label class="field-label" for="pratoId-{{ $index }}">Prato</label>
+            <select
+              id="pratoId-{{ $index }}"
+              formControlName="pratoId"
+              required
+            >
+              <option value="">Selecione um prato</option>
+              @for (prato of pratos(); track prato.id) {
+                <option [value]="prato.id">{{ prato.descricao }}</option>
+              }
+            </select>
+            @if ($any(itemGroup).controls.pratoId.touched && $any(itemGroup).controls.pratoId.invalid) {
+              <p class="error">Selecione um prato.</p>
+            }
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="quantidade-{{ $index }}">Quantidade</label>
+            <input
+              id="quantidade-{{ $index }}"
+              type="number"
+              formControlName="quantidade"
+              min="1"
+              required
+            />
+            @if ($any(itemGroup).controls.quantidade.touched && $any(itemGroup).controls.quantidade.invalid) {
+              <p class="error">Informe uma quantidade válida.</p>
+            }
+          </div>
+
+          <button type="button" class="remove-item" (click)="removeItem($index)">Remover</button>
+        </div>
+      }
+
+      <button type="button" class="add-item" (click)="addItem()">Adicionar item</button>
+    </fieldset>
+
+    @if (error()) {
+      <p class="error form-error">{{ error() }}</p>
+    }
+
+    <div class="actions">
+      <button type="submit" [disabled]="saving()">
+        {{ saving() ? 'Salvando…' : 'Salvar pedido' }}
+      </button>
+      <a [routerLink]="['/pedidos']">Cancelar</a>
+    </div>
+  </form>
+}
